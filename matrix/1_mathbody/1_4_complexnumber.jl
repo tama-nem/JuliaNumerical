@@ -35,7 +35,8 @@ function euler(x)
     ℯ^(2π*im/Float16(x))
 end
 
-ary = [1,2,3,4,5,6,7,8,9,10]
+#[1:10]ではただのRange Obj.が入った配列になってしまう
+ary = Array(1:10)
 # If you want Float or Complex Array,
 # It is good to define original function.
 eulered =  euler.(ary)

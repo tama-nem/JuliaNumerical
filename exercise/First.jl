@@ -34,3 +34,29 @@ args=[1,2]
 @show baz(args...)
 #baz(args) <- ERROR, because
 #             args is not expanded
+
+mat3=[1 2
+5 1.5]
+@show mat3 .+ [-2 3]
+@show mat3 .+ [-2; 3]
+#@show mat3 + [-2 3] # Of course, it returns error.
+#@show mat3 * [-2 3] # Either does it.
+@show mat3 * [-2; 3]
+@show mat3 .* [-2 3]
+
+vec1 = [1;3]
+vec2 = [2 4]
+@show vec1 * vec2
+
+# Yes, this results single number.
+# but, vec2 * vec1 returns array object
+# that contains a number.
+# So, I add index [1] to pick the mere number up.
+@show (vec2 * vec1)[1]
+
+vec3 = [6 5]
+# @show vec2 * vec3 Of course, it returns error.
+
+# it means 'Make new Array
+# that contains each producted values'
+@show vec2 .* vec3

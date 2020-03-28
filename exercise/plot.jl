@@ -1,4 +1,5 @@
 using Plots
+
 gr()
 f1(x)=sin(x)
 f2(x)=cos(x)
