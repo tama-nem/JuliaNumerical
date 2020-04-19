@@ -1,24 +1,24 @@
 include("../openfile.jl")
 using DataFrames
 
-println("")
+#println("")
 data, header = IO_CSV.readCSV("JuliaNumerical/exercise/sample.csv"; header=true)
 df = DataFrame(data, header)
-println(df)
+#println(df)
 
 IO_CSV.writeCSV("JuliaNumerical/exercise/writetest.csv", data)
 
-println("")
-println("Example of Type Converting")
+#println("")
+#println("Example of Type Converting")
 data2, header2 = IO_CSV.readCSV("JuliaNumerical/exercise/test.csv"; header=true)
 parsed = IO_CSV.convert(data2, Dict(1=>Int16))
-println(DataFrame(parsed))
+#println(DataFrame(parsed))
 
-println("")
-println("Example of header=false")
+#println("")
+#println("Example of header=false")
 data3, header3 = IO_CSV.readCSV("JuliaNumerical/exercise/test.csv")
 df3 = DataFrame(data3)
-println(df3)
+#println(df3)
 
 
 #現在、CSVモジュールは使用できない？？-----------------
