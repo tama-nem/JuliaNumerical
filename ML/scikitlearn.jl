@@ -9,8 +9,8 @@ include("./csv_starter.jl")
 using .IO_CSV
 
 
-    data, header = IO_CSV.readCSV("JuliaNumerical/ML/iris.csv", header=true)
-    read_d = IO_CSV.convert(data, Dict(1=>Float16,2=>Float16,3=>Float16,4=>Float16))
+    data, header = readCSV("JuliaNumerical/ML/iris.csv", header=true)
+    read_d = convertColumn(data, Dict(1=>Float16,2=>Float16,3=>Float16,4=>Float16))
 
     iris = DataFrame(read_d, header)
     println(iris)

@@ -1,22 +1,23 @@
 include("../openfile.jl")
 using DataFrames
+using .IO_CSV
 
 #println("")
-data, header = IO_CSV.readCSV("JuliaNumerical/exercise/sample.csv"; header=true)
+data, header = readCSV("JuliaNumerical/exercise/sample.csv"; header=true)
 df = DataFrame(data, header)
 #println(df)
 
-IO_CSV.writeCSV("JuliaNumerical/exercise/writetest.csv", data)
+writeCSV("JuliaNumerical/exercise/writetest.csv", data)
 
 #println("")
 #println("Example of Type Converting")
-data2, header2 = IO_CSV.readCSV("JuliaNumerical/exercise/test.csv"; header=true)
-parsed = IO_CSV.convert(data2, Dict(1=>Int16))
+data2, header2 = readCSV("JuliaNumerical/exercise/test.csv"; header=true)
+parsed = convertColumn(data2, Dict(1=>Int16))
 #println(DataFrame(parsed))
 
 #println("")
 #println("Example of header=false")
-data3, header3 = IO_CSV.readCSV("JuliaNumerical/exercise/test.csv")
+data3, header3 = readCSV("JuliaNumerical/exercise/test.csv")
 df3 = DataFrame(data3)
 #println(df3)
 

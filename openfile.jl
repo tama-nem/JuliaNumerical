@@ -1,4 +1,6 @@
 module IO_CSV
+    export readCSV, writeCSV, convertColumn
+
     function readCSV(path; header=false)
         # Open/CLose File
         lines=""
@@ -37,7 +39,7 @@ module IO_CSV
         end
     end
 
-    function convert(matrix, type)
+    function convertColumn(matrix, type)
         ans_ar=[]
         for col in 1:(size(matrix,2))
             if haskey(type, col)
